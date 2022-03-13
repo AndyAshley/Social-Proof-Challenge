@@ -1,0 +1,247 @@
+:root {
+  /* ## Colors */
+
+  /* ### Primary */
+
+  --dark-magenta: hsl(300, 43%, 22%);
+  --soft-pink: hsl(333, 80%, 67%);
+
+  /* ### Neutral */
+
+  --dark-gray-magenta: hsl(303, 10%, 53%);
+  --light-gray-magenta: hsl(300, 24%, 96%);
+  --white: hsl(0, 0%, 100%);
+
+  --border-radius: 10px;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  font-family: "Spartan", sans-serif;
+  background-image: url("../images/bg-pattern-top-mobile.svg"),
+    url("../images/bg-pattern-bottom-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 5.5em;
+}
+
+.container {
+  max-width: 80%;
+}
+
+.content-wrapper,
+.top-content,
+.bottom-content,
+.ratings,
+.reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.info-text h1 {
+  color: var(--dark-magenta);
+  font-weight: 700;
+  line-height: 1em;
+}
+
+.info-text p {
+  color: var(--dark-gray-magenta);
+  font-weight: 500;
+  line-height: 1.5em;
+  font-size: 12.5px;
+  padding: 2em 0.3em;
+}
+
+.ratings {
+  justify-content: space-evenly;
+}
+
+.rating-card {
+  background: var(--light-gray-magenta);
+  border-radius: var(--border-radius);
+  color: var(--dark-magenta);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-align: center;
+  padding: 1em;
+  margin: 0.5em 0em;
+}
+
+.five-stars {
+  background-image: url("../images/icon-star.svg"),
+    url("../images/icon-star.svg"), url("../images/icon-star.svg"),
+    url("../images/icon-star.svg"), url("../images/icon-star.svg");
+  background-repeat: no-repeat;
+  background-position: 5px, 25px, 45px, 65px, 85px;
+  background-size: 15px;
+  height: 15px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+
+.reviews {
+  margin-top: 2.2em;
+}
+
+.review-card {
+  background: var(--dark-magenta);
+  border-radius: var(--border-radius);
+  padding: 2.2em;
+  color: var(--light-gray-magenta);
+  font-size: 12px;
+  margin: 0.5em 0em;
+}
+
+.review-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.review-header img {
+  max-width: 40px;
+  border-radius: 50%;
+}
+
+.header-text {
+  line-height: 1.5em;
+  margin-left: 2em;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.verified {
+  color: var(--soft-pink);
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+blockquote {
+  margin-top: 2em;
+  line-height: 1.7em;
+  font-size: 12px;
+}
+
+.attribution {
+  font-size: 10px;
+  text-align: center;
+  padding-top: 2em;
+}
+
+.attribution a {
+  color: var(--dark-magenta);
+}
+
+@media (min-width: 900px) {
+  body {
+    align-items: center;
+    background-image: url("../images/bg-pattern-top-desktop.svg"),
+      url("../images/bg-pattern-bottom-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+  }
+
+  main {
+    padding-top: 0;
+  }
+
+  .container {
+    max-height: 800px;
+  }
+
+  .top-content {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .info-text {
+    width: 40%;
+  }
+
+  .info-text h1 {
+    font-size: 40px;
+    text-align: left;
+    padding-right: 2em;
+    color: var(--dark-magenta);
+    font-weight: 700;
+    line-height: 1em;
+  }
+
+  .info-text p {
+    padding-top: 1em;
+    padding-right: 5em;
+    text-align: left;
+    line-height: 1.8em;
+  }
+
+  .ratings {
+    align-items: center;
+  }
+
+  .ratings .rating-card:nth-child(2) {
+    margin-left: 50px;
+  }
+
+  .ratings .rating-card:nth-child(3) {
+    margin-left: 100px;
+  }
+
+  .rating-card {
+    display: flex;
+    align-items: center;
+    font-size: 11.5px;
+    font-weight: 700;
+    width: 450px;
+    height: 60px;
+    padding: 2em 4em;
+  }
+
+  .five-stars {
+    background-image: url("../images/icon-star.svg"),
+      url("../images/icon-star.svg"), url("../images/icon-star.svg"),
+      url("../images/icon-star.svg"), url("../images/icon-star.svg");
+    background-repeat: no-repeat;
+    background-position: 5px, 25px, 45px, 65px, 85px;
+    background-size: 15px;
+    height: 15px;
+    margin-right: auto;
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 100px;
+  }
+
+  .reviews {
+    flex-direction: row;
+  }
+
+  .ratings {
+    width: 60%;
+  }
+} ;
