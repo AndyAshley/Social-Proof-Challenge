@@ -30,10 +30,10 @@ body {
   justify-content: center;
   font-size: 15px;
   font-family: "Spartan", sans-serif;
-  background-image: url("../images/bg-pattern-top-mobile.svg"),
-    url("../images/bg-pattern-bottom-mobile.svg");
+  background-image: url("../images/bg-pattern-top-desktop.svg"),
+    url("../images/bg-pattern-bottom-desktop.svg");
   background-repeat: no-repeat;
-  background-position: top, bottom;
+  background-position: top left, bottom right;
 }
 
 main {
@@ -64,6 +64,15 @@ main {
   color: var(--dark-magenta);
   font-weight: 700;
   line-height: 1em;
+  cursor: default;
+}
+
+.header-hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.info-text h1:hover > .header-hover {
+  color: var(--soft-pink);
 }
 
 .info-text p {
@@ -87,6 +96,12 @@ main {
   text-align: center;
   padding: 1em;
   margin: 0.5em 0em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.rating-card:hover {
+  animation: wiggle 0.2s ease forwards;
 }
 
 .five-stars {
@@ -114,6 +129,16 @@ main {
   color: var(--light-gray-magenta);
   font-size: 12px;
   margin: 0.5em 0em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+}
+
+.review-card:hover > .review-header > .header-text > .verified {
+  opacity: 1;
 }
 
 .review-header {
@@ -141,6 +166,7 @@ main {
   color: var(--soft-pink);
   font-weight: 500;
   opacity: 0.6;
+  transition: all 0.2s ease-in-out;
 }
 
 blockquote {
@@ -159,21 +185,31 @@ blockquote {
   color: var(--dark-magenta);
 }
 
-@media (min-width: 900px) {
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  35% {
+    transform: rotate(1deg) scale(1.05);
+  }
+  65% {
+    transform: rotate(-1deg) scale(1.05);
+  }
+  95% {
+    transform: rotate(1deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.05);
+  }
+}
+
+@media (min-width: 1350px) {
   body {
     align-items: center;
-    background-image: url("../images/bg-pattern-top-desktop.svg"),
-      url("../images/bg-pattern-bottom-desktop.svg");
-    background-repeat: no-repeat;
-    background-position: top left, bottom right;
   }
 
   main {
     padding-top: 0;
-  }
-
-  .container {
-    max-height: 800px;
   }
 
   .top-content {
@@ -186,62 +222,93 @@ blockquote {
   }
 
   .info-text h1 {
-    font-size: 40px;
+    padding-top: 0.5em;
+    font-size: 50px;
     text-align: left;
-    padding-right: 2em;
-    color: var(--dark-magenta);
-    font-weight: 700;
-    line-height: 1em;
   }
 
   .info-text p {
     padding-top: 1em;
-    padding-right: 5em;
+    padding-right: 0em;
     text-align: left;
-    line-height: 1.8em;
+    line-height: 1.5em;
+    font-size: 15px;
   }
 
   .ratings {
-    align-items: center;
+    width: 60%;
+    display: block;
+    margin: auto;
+    padding-left: 50px;
+  }
+
+  .ratings .rating-card:nth-child(1) {
+    margin-left: 65px;
   }
 
   .ratings .rating-card:nth-child(2) {
-    margin-left: 50px;
+    margin-left: 125px;
   }
 
   .ratings .rating-card:nth-child(3) {
-    margin-left: 100px;
+    margin-left: 185px;
   }
 
   .rating-card {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    font-size: 11.5px;
-    font-weight: 700;
+    font-size: 12.5px;
     width: 450px;
     height: 60px;
     padding: 2em 4em;
+    margin: 1.5em;
   }
 
   .five-stars {
     background-image: url("../images/icon-star.svg"),
       url("../images/icon-star.svg"), url("../images/icon-star.svg"),
       url("../images/icon-star.svg"), url("../images/icon-star.svg");
-    background-repeat: no-repeat;
-    background-position: 5px, 25px, 45px, 65px, 85px;
-    background-size: 15px;
-    height: 15px;
-    margin-right: auto;
+    background-position: 5px, 30px, 55px, 80px, 105px;
+    background-size: 18px;
+    height: 20px;
     margin-left: 0;
+    margin-right: 2em;
     margin-bottom: 0;
-    width: 100px;
+    width: 125px;
   }
 
   .reviews {
     flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 30px;
   }
 
-  .ratings {
-    width: 60%;
+  .reviews .review-card:nth-child(2) {
+    margin-top: 15px;
   }
-} ;
+
+  .reviews .review-card:nth-child(3) {
+    margin-top: 30px;
+  }
+
+  .review-card {
+    background: var(--dark-magenta);
+    border-radius: var(--border-radius);
+    padding: 2.5em;
+    color: var(--light-gray-magenta);
+    font-size: 12px;
+    margin: 0;
+    width: 350px;
+    height: 235px;
+  }
+}
+
+@media (max-width: 425px) {
+  body {
+    background-image: url("../images/bg-pattern-top-mobile.svg"),
+      url("../images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+  }
+}
