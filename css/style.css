@@ -304,6 +304,12 @@ blockquote {
   }
 }
 
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
 @media (max-width: 425px) {
   body {
     background-image: url("../images/bg-pattern-top-mobile.svg"),
